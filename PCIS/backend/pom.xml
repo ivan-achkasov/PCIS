@@ -10,14 +10,11 @@
 	</parent>
 	<artifactId>backend</artifactId>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
-			<version>5.2.5.Final</version>
+			<version>${hibernate.version}</version>
 		</dependency>
 	</dependencies>
 </project>
