@@ -9,7 +9,7 @@ import org.hibernate.SessionFactory;
 import org.pcis.backend.db.dao.EntityDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class EntityDAOImpl<T> implements EntityDAO<T> {
+public abstract class EntityDAOImpl<T> implements EntityDAO<T> {
 
   @Autowired
   SessionFactory sessionFactory;
