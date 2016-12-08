@@ -22,12 +22,8 @@ public class Enumerator {
   @Column(name = "typeEnum", nullable = false, length = 50)
   private String typeEnum;
 
-  @OneToMany(mappedBy = "enumerator")
+  @OneToMany(mappedBy = "idEnumerator")
   private Set<Used> usedList;
-
-  public Enumerator() {
-
-  }
 
   public Enumerator(Long id) {
     this.id = id;
@@ -41,7 +37,7 @@ public class Enumerator {
     return id;
   }
 
-  public void setTypeEnum(String typeEum) {
+  public void setTypeEnum(String typeEnum) {
     this.typeEnum = typeEnum;
   }
 

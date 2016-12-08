@@ -1,6 +1,10 @@
 package org.pcis.backend.db.model;
 
+import java.util.Date;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -9,17 +13,17 @@ import javax.persistence.Table;
 @Table(name = "used")
 public class Used {
 
+  @Id
+  @Column(name = "date")
+  private Date date;
+
+  @Id
   @ManyToOne
-  @JoinColumn(name = "idEnum")
+  @JoinColumn(name = "idEnumenator")
   private Enumerator enumerator;
 
-  @ManyToOne
-  @JoinColumn(name = "idClient")
-  private Client client;
-
-  public Used() {
-
-  }
+  @Column(name = "value")
+  private Integer value;
 
   public void setEnumerator(Enumerator enumerator) {
     this.enumerator = enumerator;
@@ -29,12 +33,20 @@ public class Used {
     return enumerator;
   }
 
-  public void setClient(Client client) {
-    this.client = client;
+  public Date getDate() {
+    return date;
   }
 
-  public Client getClient() {
-    return client;
+  public void setDate(Date date) {
+    this.date = date;
+  }
+
+  public Integer getValue() {
+    return value;
+  }
+
+  public void setValue(Integer value) {
+    this.value = value;
   }
 
 }

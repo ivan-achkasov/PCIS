@@ -26,10 +26,10 @@ public class Client {
 
   @ManyToOne
   @JoinColumn(name = "idSec")
-  private Sector sector;
+  private String sector;
 
-  @OneToMany(mappedBy = "client")
-  private Set<Used> usedList;
+  @OneToMany(mappedBy = "idClient")
+  private Set<Enumerator> enumenatorList;
 
   public Client(Long id) {
     this.id = id;
@@ -51,19 +51,19 @@ public class Client {
     return FIO;
   }
 
-  public void setSector(Sector sector) {
+  public void setSector(String sector) {
     this.sector = sector;
   }
 
-  public Sector getSector() {
+  public String getSector() {
     return sector;
   }
 
-  public void setUsedList(Set<Used> usedList) {
-    this.usedList = usedList;
+  public void setEnumenatorList(Set<Enumerator> enumenatorList) {
+    this.enumenatorList = enumenatorList;
   }
 
-  public Set<Used> getUsedList() {
-    return usedList;
+  public Set<Enumerator> getEnumenatorList() {
+    return enumenatorList;
   }
 }
