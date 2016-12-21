@@ -24,12 +24,11 @@ public class Client {
   @Column(name = "fio", unique = true, length = 50)
   private String FIO;
 
-  @ManyToOne
-  @JoinColumn(name = "idSec")
+  @Column(name = "sector", length = 45)
   private String sector;
 
-  @OneToMany(mappedBy = "idClient")
-  private Set<Enumerator> enumenatorList;
+  @OneToMany(mappedBy = "client")
+  private Set<Enumenator> enumenatorList;
 
   public Client(Long id) {
     this.id = id;
@@ -59,11 +58,11 @@ public class Client {
     return sector;
   }
 
-  public void setEnumenatorList(Set<Enumerator> enumenatorList) {
+  public void setEnumenatorList(Set<Enumenator> enumenatorList) {
     this.enumenatorList = enumenatorList;
   }
 
-  public Set<Enumerator> getEnumenatorList() {
+  public Set<Enumenator> getEnumenatorList() {
     return enumenatorList;
   }
 }
