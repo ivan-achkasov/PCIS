@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -14,14 +16,15 @@ import javax.persistence.Table;
 public class Enumenator {
 
   @Id  
-  @Column(name = "id")
+  @Column(name = "id", insertable = false, updatable=false)
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
 
-  @Column(name = "typeEnum", nullable = false, length = 50)
-  private String typeEnum;
+  @Column(name = "type", nullable = false, length = 50)
+  private String type;
 
-  @Column(name = "client")
+  @ManyToOne
+  @JoinColumn(name = "id", insertable=false, updatable=false)
   private Client client;
   
   @Column(name = "value")
@@ -39,12 +42,12 @@ public class Enumenator {
     return id;
   }
 
-  public void setTypeEnum(String typeEnum) {
-    this.typeEnum = typeEnum;
+  public void setTypeEnum(String type) {
+    this.type = type;
   }
 
   public String getTypeEnum() {
-    return typeEnum;
+    return type;
   }
 
 public Client getClient() {

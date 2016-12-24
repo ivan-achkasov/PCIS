@@ -15,7 +15,7 @@ public abstract class EntityDAOImpl<T> implements EntityDAO<T> {
   SessionFactory sessionFactory;
 
   public T getById(Long id) {
-    return getSession().get(getGenericClass(), id);
+    return (T) getSession().get(getGenericClass(), id);
   }
 
   public void add(T entity) {
